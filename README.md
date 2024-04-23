@@ -1,7 +1,10 @@
 # TEMA2_LFA
-Observatie: testele trebuie mutate in acelasi folder cu sursa pentru a rula
+Observation: Tests must be moved to same directory as the C++ source code.
 
-# Subpunctul a)
-Citiți un automat nedeterminist (NFA) din fișier si transformați-l într-un automat determinist (DFA) care acceptă exact acelasi limbaj. 
+# Subtask a)
+Read a Nondeterministic finite automaton (NFA) from a file and transform it into Deterministic finite automaton (DFA) that accepts the same language.
 
-- DFA-ul creat este deja minimizat. Am lucrat cu o matrice 2D care tine set-uri.
+- I used a 2D table of sets
+- The resulting DFA is minimised
+
+# Subtask b)
