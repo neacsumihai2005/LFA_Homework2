@@ -7,3 +7,4 @@ Read a Nondeterministic finite automaton (NFA) from a file and transform it into
 - The resulting DFA is minimised
 
 # Subtask b)
+Minimise a given DFA.
