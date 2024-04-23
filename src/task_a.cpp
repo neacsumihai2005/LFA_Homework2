@@ -54,10 +54,7 @@ void citire(std::istream&fin, std::ostream& fout, int &N, vector<int> &v, int &M
     normalizare(fout, v, map_normalizare);
 
     fin >> M;
-    /*for(int i = 0; i <= M; i++){
-        vector< pair<int, char> > temp;
-        G.push_back(temp);
-    }*/
+
     for(int i = 0; i < N; i++){
         vector< set<int> >temp2;
         for(int j = 0; j <= 26; j++){
@@ -134,7 +131,6 @@ int main()
     set_temporar_sursa.insert(sursa);
     corespondent_linie_tabel_DFA.push_back(set_temporar_sursa);
     corespondenti_existenti.insert(set_temporar_sursa);
-    ///afisare_set(corespondent_linie_tabel_DFA[0]); cout << "\n";
 
     vector< vector< set<int> > >tabel_DFA;
     for(int i = 0; i < corespondent_linie_tabel_DFA.size(); i++){
@@ -146,55 +142,27 @@ int main()
         tabel_DFA.push_back(temp2);
 
 
-        ///fills out line number i;
-        ///initially, line number i only has its corespondent_linie_tabel_DFA[i]
         for(int j = 0; j <= 26; j++){
             for(set<int>::iterator itr = corespondent_linie_tabel_DFA[i].begin(); itr != corespondent_linie_tabel_DFA[i].end(); itr++){
                 int elem = (*itr);
-                ///look up values in the NFA table
-                ///and see if you find new states
                 tabel_DFA[i][j].insert(tabel_NFA[ elem ][j].begin(), tabel_NFA[ elem ][j].end());
             }
         }
 
-        ///parcurg linia curenta si vad daca au aparut stari care pana acum
-        ///nu existau
-        /*
-        for(int j = 0; j <= 26; j++){
-            afisare_set(tabel_DFA[i][j]); cout << ' ';
-        }
-        cout << "\n";
-        */
         for(int j = 0; j <= 26; j++){
             if(tabel_DFA[i][j].empty()){
                 continue;
             }
 
             if(corespondenti_existenti.find(tabel_DFA[i][j]) == corespondenti_existenti.end()){
-                ///cout << "am unul nou! "; afisare_set(tabel_DFA[i][j]); cout << "\n";
                 corespondent_linie_tabel_DFA.push_back(tabel_DFA[i][j]);
                 corespondenti_existenti.insert(tabel_DFA[i][j]);
             }
         }
-        ///cout << "\n";
     }
 
     afisare_DFA(fout, corespondent_linie_tabel_DFA, tabel_DFA);
 
-    /*
-    N_prime = 1;
-    Q_prime[1] = sursa;
-
-    for(int i = 0; i < G[ Q_prime[1] ].size(); i++){
-        int vec = G[ Q_prime[1] ][i].first;
-        char litera = G[ Q_prime[1] ][i].second;
-
-        if(vec not in Q_prime){
-            Q_prime adaug vec;
-        }
-
-    }
-    */
 
     return 0;
 }
