@@ -10,7 +10,7 @@ void normalizare(std::ostream& os, vector<int> &v, map<int, int> &map_normalizar
     map_normalizare.clear();
 
     for(int i = 0; i < v.size(); i++){
-        map_normalizare[ v[i] ]; ///funny statement; aloca spatiul
+        map_normalizare[ v[i] ]; ///funny statement; alocates space
     }
 
     int pt = 0;
@@ -98,7 +98,7 @@ bool equivalent(int value1, int value2, vector < vector<int> > lista, vector< ve
         else {
             int id_reprezentant1;
             int id_reprezentant2;
-            ///verific daca reprezentant1 si reprezentant2 se afla in acelasi vector din lista de vectori 'lista'
+            ///verify if reprezentant1 si reprezentant2 are in the same vector from 'lista'
             for(int i = 0; i < lista.size(); i++){
                 for(int j = 0; j < lista[i].size(); j++){
                     if(reprezentant1 == lista[i][j]){
@@ -187,8 +187,6 @@ int main()
         new_equivalence.clear();
 
         for(int nr_vec = 0; nr_vec < last_equivalence.size(); nr_vec++){
-            ///iau fiecare vector din last_equivalence
-            ///si vad ce vectori noi imi da
             vector<int> current_container;
             current_container = last_equivalence[nr_vec];
 
@@ -197,14 +195,6 @@ int main()
             vector<int>aux;
             aux.push_back(last_equivalence[nr_vec][0]);
             new_equivalence.push_back(aux);
-
-            /*
-            cout << "il aleg pe " << last_equivalence[nr_vec][0] << " pt containerul " << nr_vec << "\n";
-            for(int i = 0; i < last_equivalence[nr_vec].size(); i++){
-                cout << last_equivalence[nr_vec][i] << ", ";
-            }
-            cout << ")!\n";
-            */
 
             for(int id_elem = 1; id_elem < current_container.size(); id_elem++){
                 int elem_to_add = current_container[id_elem];
@@ -226,35 +216,7 @@ int main()
             }
         }
 
-        /*last_equivalence.clear();
-        for(int i = 0; i < now_equivalence.size(); i++){
 
-        }
-        now_equivalence = null;
-            */
-
-
-        /*
-        cout << "last_equivalence:\n";
-        for(int i = 0; i < last_equivalence.size(); i++){
-            cout << "{";
-            for(int j = 0; j < last_equivalence[i].size(); j++){
-                cout << last_equivalence[i][j] << ", ";
-            }
-            cout << "}\n";
-        }
-        cout << "\n";
-
-        cout << "new_equivalence:\n";
-        for(int i = 0; i < new_equivalence.size(); i++){
-            cout << "{";
-            for(int j = 0; j < new_equivalence[i].size(); j++){
-                cout << new_equivalence[i][j] << ", ";
-            }
-            cout << "}\n";
-        }
-        cout << "\n\n";
-        */
     }
 
     for(int id_container = 0; id_container < new_equivalence.size(); id_container++){
