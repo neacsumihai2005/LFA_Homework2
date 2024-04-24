@@ -120,7 +120,7 @@ bool equivalent(int value1, int value2, vector < vector<int> > lista, vector< ve
 
 }
 
-void show_new(int value, vector< vector<int> > new_equivalence){
+void show_new(std::ostream& os, int value, vector< vector<int> > new_equivalence){
     bool flag_found = 0;
     int container_show = 0;
     for(int id_container = 0; !flag_found && id_container < new_equivalence.size(); id_container++){
@@ -132,16 +132,16 @@ void show_new(int value, vector< vector<int> > new_equivalence){
         }
     }
 
-    cout << "{";
+    os << "{";
     for(int itr_container = 0; itr_container < new_equivalence[container_show].size(); itr_container++){
-        cout << "q";
-        cout << new_equivalence[container_show][itr_container];
+        os << "q";
+        os << new_equivalence[container_show][itr_container];
 
         if(itr_container != new_equivalence[container_show].size() - 1){
-            cout << ", ";
+            os << ", ";
         }
     }
-    cout << "}";
+    os << "}";
 }
 
 int main()
@@ -220,16 +220,16 @@ int main()
     }
 
     for(int id_container = 0; id_container < new_equivalence.size(); id_container++){
-        cout << "{";
+        fout << "{";
         for(int itr_container = 0; itr_container < new_equivalence[id_container].size(); itr_container++){
             int crr_elem = new_equivalence[id_container][itr_container];
-            cout << "q" << crr_elem;
+            fout << "q" << crr_elem;
 
             if(itr_container != new_equivalence[id_container].size() - 1){
-                cout << ", ";
+                fout << ", ";
             }
         }
-        cout << "}: ";
+        fout << "}: ";
 
         for(int itr_container = 0; itr_container < new_equivalence[id_container].size(); itr_container++){
             for(int j = 0; j <= 26; j++){
@@ -244,16 +244,16 @@ int main()
                     }
 
                     if(flag_good){
-                        cout << "(";
-                        show_new(tabel_DFA[crr_elem][j], new_equivalence);
-                        cout << ", ";
-                        cout << ((j == 0) ? ('L') : (char)('a' + j - 1));
-                        cout << ") ";
+                        fout << "(";
+                        show_new(fout, tabel_DFA[crr_elem][j], new_equivalence);
+                        fout << ", ";
+                        fout << ((j == 0) ? ('L') : (char)('a' + j - 1));
+                        fout<< ") ";
                     }
                 }
             }
         }
-        cout << "\n";
+        fout << "\n";
 
     }
 
