@@ -8,13 +8,13 @@ Read a Nondeterministic finite automaton (NFA) from a file and transform it into
 Minimise a given DFA.
 
 # Format input
-Programul citeste din fisierul “input.txt” urmoatoarele informatii:
+Read from “input.txt” the following:
 
-- pe prima linie, numarul de stari ale automatului (numit N)
-- pe a doua linie, starile automatului (numere intregi, nu neaparat consecutive)
-- pe linia a treia, numarul de tranzitii (sa il notam M)
- -pe urmatoarele M linii, descrierea unei tranzitii, sub formatul:
-	- x y l, unde x este starea (nodul) din care pleaca tranzitia (muchia, arcul) y este starea in care ajunge tranzitia, l este litera tranzitiei
-- pe urmatoarea linie este scris un numar natural S, care inseamna starea initiala
-- pe urmatoarea linie gasim nrF, care inseamna numarul de stari finale
-- pe urmatoarea linie gasim nrF numere intregi (nrF<=N), reprezentand starile finale
+- on the first line, the number of states (named N)
+- on the second line, the states of the automaton (integer numbers, not necessarily consecutive)
+- on the third line, the number of transitions (named M)
+- on the next M lines, the description of a tranasition, under the format:
+	- x y l, where x is the origin (vertex, node) of the transition (edge) that leads to y, l is the letter of the transition
+- on the next line, the origin state S
+- on the next line, the number of final states, nrF
+- on the next line, nrF integers (nrF<=N), representing the final states
